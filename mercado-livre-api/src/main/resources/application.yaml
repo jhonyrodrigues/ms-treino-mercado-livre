@@ -1,0 +1,8 @@
+spring:
+  mvc.async.request-timeout: 5000
+  application:
+    name: mercado-livre-api
+  data:
+    mongodb:
+      uri: ${MERCADO_LIVRE_DB_URI}
+      auto-index-creation: true

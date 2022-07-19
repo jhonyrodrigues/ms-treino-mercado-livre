@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+
+  mongo.legacy.dev:
+    container_name: mongo.legacy.dev
+    image: mongo:3.4
+    restart: always
+    command: mongod --maxConns 10000
+    volumes:
+      - legacy_mongo:/data/db
+    networks:
+      - bubble_general
+    ports:
+      - "37017:27017"
+
+# NETWORKS
+networks:
+  bubble_general:
+    name: bubble_general
+    driver: bridge
+    ipam:
+      config:
+        -   subnet: 10.0.0.0/13
+
+# VOLUMES
+volumes:
+  address_db:
+  authorization_mongo:
+  feed_mongo:
+
+  legacy_mongo:
+  legacy_db:
+  legacy_db2:
